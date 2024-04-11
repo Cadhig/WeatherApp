@@ -3,24 +3,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather API</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <h1>Weather</h1>
-        </nav>
+        <h1>Weather App</h1>
     </header>
     <div>
         <aside>
             <input type="text" id="LocationInput" placeholder="Type city name here">
             <button onclick="fetchdata()">Search</button><br>
+            <div id="city-container"></div>
         </aside>
         <article>
+            <div id="currentWeather">
+                <h2 id="localWeather"></h2>
+                <img id="icon">
+                <p id="temp"></p>
+                <p id="humidity"></p>
+                <p id="wind"></p>
+            </div>
+            <div id="weatherCard">
+            </div>
         </article>
     </div>
     <footer>
         <h2>Made by Cadence Higgins</h2>
     </footer>
-    <script src="script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>

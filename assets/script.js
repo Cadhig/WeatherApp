@@ -1,4 +1,7 @@
+
+
 // Api fetch
+
 async function fetchdata(cities) {
     try {
         const weatherCard = document.getElementById('weatherCard')
@@ -6,6 +9,7 @@ async function fetchdata(cities) {
 
         const container = document.getElementById('city-container')
         container.innerHTML = ""
+
 
         // link to input in html
         const location = cities || document.getElementById("LocationInput").value;
@@ -36,7 +40,9 @@ async function fetchdata(cities) {
         console.log(currentWeatherJson)
 
         const currentHead = document.getElementById('localWeather')
-        currentHead.textContent = `Current weather in ${currentWeatherJson.name}`
+        let date = dayjs().format('dddd M/D')
+        console.log(date)
+        currentHead.textContent = `${currentWeatherJson.name} | ${date}`
         const currentIcon = document.getElementById('icon')
         currentIcon.src = (`https://openweathermap.org/img/wn/${currentWeatherJson.weather[0].icon}@2x.png`)
         const currentTemp = document.getElementById('temp')
@@ -62,6 +68,7 @@ async function fetchdata(cities) {
             const cities = storedCities[i]
             const container = document.getElementById('city-container')
             const cityButton = document.createElement('button')
+            cityButton.setAttribute('id', 'city-buttons')
             cityButton.textContent = cities
             cityButton.onclick = () => fetchdata(cities)
 
@@ -82,8 +89,16 @@ async function fetchdata(cities) {
         // grab list array from object
         const listArray = weatherJson.list
 
+        let startIndex = 0
+        for (let i = 0; i < listArray.length; i++) {
+            let forecastTime = listArray[i].dt_txt.split(' ')[1]
+            if (forecastTime == "12:00:00") {
+                startIndex = i
+                break
+            }
+        }
         // grab the weather each day for 5 days
-        for (let i = 8; i < listArray.length; i = i + 8) {
+        for (let i = startIndex; i < listArray.length; i = i + 8) {
             const dailyWeather = listArray[i]
             const weatherCardBody = document.getElementById('weatherCard')
             const weatherCard = document.createElement('div')
@@ -108,6 +123,11 @@ async function fetchdata(cities) {
             weatherCard.appendChild(windSpeed)
             weatherCardBody.appendChild(weatherCard)
         }
+        const forecastTitle = document.getElementById('forecast-title')
+        forecastTitle.innerHTML = ""
+        const forecastHead = document.createElement('h1')
+        forecastHead.textContent = '5 Day Forecast'
+        forecastTitle.appendChild(forecastHead)
     }
     catch (error) {
         console.error(error)

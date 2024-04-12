@@ -6,30 +6,41 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <header>
-        <h1>Weather App</h1>
+    <header id="bar">
+        <h1>What's the Weather?</h1>
     </header>
-    <div>
+    <div id="main-container">
         <aside>
+            <div id="input-container">
             <input type="text" id="LocationInput" placeholder="Type city name here">
             <button onclick="fetchdata()">Search</button><br>
+            </div>
             <div id="city-container"></div>
         </aside>
         <article>
             <div id="currentWeather">
-                <h2 id="localWeather"></h2>
-                <img id="icon">
-                <p id="temp"></p>
-                <p id="humidity"></p>
-                <p id="wind"></p>
+                <div id="current-header">
+                    <h2 id="localWeather"></h2>
+                    <img id="icon">
+                </div>
+                <div id="weather-conditions">
+                    <p id="temp"></p>
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                </div>
             </div>
+            <div id="forecast-title"></div>
             <div id="weatherCard">
             </div>
         </article>
     </div>
-    <footer>
+    <footer id="bar">
         <h2>Made by Cadence Higgins</h2>
     </footer>
+    <script
+            src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+            crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>

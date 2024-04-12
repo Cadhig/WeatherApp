@@ -77,7 +77,7 @@ async function fetchdata(cities) {
 
         // Weather forecast cards
         // uses above values to grab weather from API
-        const weatherLocation = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${weatherLat}&lon=${weatherLon}&appid=9bf1da022bd331ad487f568dd4ea6f34&units=imperial`)
+        const weatherLocation = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${weatherLat}&lon=${weatherLon}&appid=9bf1da022bd331ad487f568dd4ea6f34&units=imperial`)
 
         // throws error if invalid
         if (!weatherLocation.ok) {

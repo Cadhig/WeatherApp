@@ -13,7 +13,7 @@ async function fetchdata(cities) {
 
         // link to input in html
         const location = cities || document.getElementById("LocationInput").value;
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=9bf1da022bd331ad487f568dd4ea6f34`)
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=9bf1da022bd331ad487f568dd4ea6f34`)
         console.log(response)
         // throws error if invalid
         if (!response.ok) {

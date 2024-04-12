@@ -4,3 +4,6 @@
 - 5 day forecast and today weather data available
 
   ![image](https://github.com/Cadhig/Weather-api/assets/160413853/b6ce0acc-b7c4-4285-91b7-f2868267809a)
+
+  check it out here! https://cadhig.github.io/Weather-api/
+  
